@@ -6,10 +6,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import net.miginfocom.swing.MigLayout;
+
 public class Main extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private Sidebar sidebar;
+	private Body body;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -31,10 +34,13 @@ public class Main extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
-//		setContentPane.setLayout(new MigLayout("fillx, filly", "0[300!]0[fill, 100%"));
+		contentPane.setLayout(new MigLayout("fillx, filly", "0[300!]0[fill, 100%]0", "0[fill]0"));
 		
 		sidebar = new Sidebar();
 		contentPane.add(sidebar, "width 300:300:300");
+		
+		body = new Body();
+		contentPane.add(body, "width 1240:1240:1240");
 		
 		setContentPane(contentPane);
 	}
